@@ -10,6 +10,19 @@ NOTE: If you read this from Docker Hub, you will find reading from https://githu
 
 NOTE: You can find this docker container on Docker Hub: https://hub.docker.com/r/chevdor/ethereum-testnet-miner/
 
+== In a rush?
+
+In a rush and just want to 'see it work' ?
+
+Run that:
+
+[source,shell,numbered]
+```
+docker run -it \
+   -v /Users/<yourname>/ethdatadir/:/ethdata/datadir \
+   ethereum-testnet-miner:latest
+```
+
 [Intro]
 == Intro
 If you want to test or develop with the Ethereum network, you will probably want to get some Ether (ETH or Ξ) on the testnet and run your testing there.
@@ -34,7 +47,7 @@ docker run -it \
    -e THREADS=4 \
    -e ETHERBASE=0x3e37011e4a0ce72bB326CAed68dFD03c077E627A \
    -e EXTRADATA="docker eth miner" \
-   -v /Users/will/persistedvol/:/ethdata/datadir \
+   -v /Users/<yourname>/ethdatadir/:/ethdata/datadir \
    ethereum-testnet-miner:latest
 ```
 
