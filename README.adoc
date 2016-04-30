@@ -20,8 +20,10 @@ Run that:
 ```
 docker run -it \
    -v /Users/<yourname>/ethdatadir/:/ethdata/datadir \
-   ethereum-testnet-miner:latest
+   ethereum-testnet-miner:stable
 ```
+
+If you already have a testnet datadir, you can copy it into +/Users/<yourname>/ethdatadir/+ before you start. That will speed up things a lot.
 
 [Intro]
 == Intro
@@ -45,10 +47,10 @@ For the sake of clarity, the following command is split into a few lines. Run it
 ```
 docker run -it \
    -e THREADS=4 \
-   -e ETHERBASE=0x3e37011e4a0ce72bB326CAed68dFD03c077E627A \
+   -e ETHERBASE=0x1077c862ed6484C5756ec6A7549BFb570024995C \
    -e EXTRADATA="docker eth miner" \
    -v /Users/<yourname>/ethdatadir/:/ethdata/datadir \
-   ethereum-testnet-miner:latest
+   ethereum-testnet-miner:stable
 ```
 
 
