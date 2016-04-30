@@ -10,17 +10,15 @@ NOTE: If you read this from Docker Hub, you will find reading from https://githu
 
 NOTE: You can find this docker container on Docker Hub: https://hub.docker.com/r/chevdor/ethereum-testnet-miner/
 
-== In a rush?
+== In a rush or impatient ?
 
-In a rush and just want to 'see it work' ?
-
-Run that:
+In a rush and just want to 'see it work' ? Run that:
 
 [source,shell,numbered]
 ```
 docker run -it \
    -v /Users/<yourname>/ethdatadir/:/ethdata/datadir \
-   ethereum-testnet-miner:stable
+   chevdor/ethereum-testnet-miner:stable
 ```
 
 If you already have a testnet datadir, you can copy it into +/Users/<yourname>/ethdatadir/+ before you start. That will speed up things a lot.
@@ -50,7 +48,7 @@ docker run -it \
    -e ETHERBASE=0x1077c862ed6484C5756ec6A7549BFb570024995C \
    -e EXTRADATA="docker eth miner" \
    -v /Users/<yourname>/ethdatadir/:/ethdata/datadir \
-   ethereum-testnet-miner:stable
+   chevdor/ethereum-testnet-miner:stable
 ```
 
 
