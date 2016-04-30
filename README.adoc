@@ -1,12 +1,24 @@
 = Docker container: Ethereum testnet miner
 Chevdor <chevdor@gmail.com>
-v0.1.0, 2016-3-30
+v1.5.0, 2016-3-30
 :toc:
 :source-highlighter: pygments 				// coderay, highlightjs, prettify, and pygments.
 :doctype: Article
 
-[Chapter 1]
+[Intro]
 == Intro
+If you want to test or develop with the Ethereum network, you will probably want to get some Ether (ETH or Ξ) on the testnet and run your testing there.
+Mining on the testnet *does not* require a GPU and you can min all fine with a regular CPU.
+
+WARNING: Testnet Ether has no value. It cannot be sold/bought.
+
+This docker container provides an easy way to get started. The only requirement is a working internet connection. You may run the container without any option and it will run fine. However, you probably want to provide at least the 2 following parameters: 
+
+. A volume where the blockchain will be stored. If you don´t, the blockchain will be lost when you destroy the contaniner.
+. Your testnet Account/Contract address in order to receive your testnet Ether.
+
+All the other parameters are optional.
+
 This container is provided by *{author}*. Here is a sample usage:
 
 For the sake of clarity, the following command is split into a few lines. Run it as a single line.
@@ -44,9 +56,12 @@ This is the address that receives the rewards in Ether for your miner. Don´t fo
 Optional.
 You may pass extra data to your miner. See https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#minersetextra
 
-== Volumes & folder
 
-All the data we should care about is located inside the /ethdata folder in the container. it contains mainly 3 sub folders:
+
+[Volumes and Folders]
+== Volumes & folders
+
+All the data we should care about is located inside the +/ethdata+ folder in the container. it contains mainly 3 interesting sub-folders:
 
 . ipc
 . datadir
