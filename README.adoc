@@ -5,6 +5,9 @@ v1.5.0, 2016-3-30
 :source-highlighter: pygments 				// coderay, highlightjs, prettify, and pygments.
 :doctype: Article
 
+
+NOTE: If you read this from Docker Hub, you will find reading from https://github.com/chevdor/ethereum-testnet-miner[GitHub] much more pleasant as +asciidoc+ is better supported there.
+
 [Intro]
 == Intro
 If you want to test or develop with the Ethereum network, you will probably want to get some Ether (ETH or Ξ) on the testnet and run your testing there.
