@@ -6,7 +6,7 @@ v1.5.0, 2016-3-30
 :doctype: Article
 
 
-NOTE: If you read this from Docker Hub, you will find reading from https://github.com/chevdor/ethereum-testnet-miner[GitHub] much more pleasant as +asciidoc+ is better supported there.
+NOTE: If you read this from Docker Hub, you will find reading from https://github.com/chevdor/ethereum-testnet-miner as +asciidoc+ is better supported there.
 
 NOTE: You can find this docker container on Docker Hub: https://hub.docker.com/r/chevdor/ethereum-testnet-miner/
 
