@@ -8,6 +8,8 @@ v1.5.0, 2016-3-30
 
 NOTE: If you read this from Docker Hub, you will find reading from https://github.com/chevdor/ethereum-testnet-miner[GitHub] much more pleasant as +asciidoc+ is better supported there.
 
+NOTE: You can find this docker container on Docker Hub: https://hub.docker.com/r/chevdor/ethereum-testnet-miner/
+
 [Intro]
 == Intro
 If you want to test or develop with the Ethereum network, you will probably want to get some Ether (ETH or Ξ) on the testnet and run your testing there.
