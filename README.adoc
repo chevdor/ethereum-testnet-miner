@@ -1,0 +1,67 @@
+= Docker container: Ethereum testnet miner
+Chevdor <chevdor@gmail.com>
+v0.1.0, 2016-3-30
+:toc:
+:source-highlighter: pygments 				// coderay, highlightjs, prettify, and pygments.
+:doctype: Article
+
+[Chapter 1]
+== Intro
+This container is provided by *{author}*. Here is a sample usage:
+
+For the sake of clarity, the following command is split into a few lines. Run it as a single line.
+
+[source,shell,numbered]
+```
+docker run -it \
+   -e THREADS=4 \ <1> 
+   -e ETHERBASE=0x5a382C2fA3543E79e301Ef9d2f037351893C64A0 \ <2>
+   -e EXTRADATA="docker eth miner" \ <3>   
+   -v /Users/will/persistedvol/:/ethdata/datadir \ <4>  
+   ethereum-testnet-miner:latest <5>
+```
+
+<1> The number of thread for the miner. Default is 8.
+<2> This is your etherbase address, the address that received the miner rewards
+<3> Optional extra data
+<4> Main data folder. You *want* :) to attach that volume 
+<5> This is the docker image we use
+
+
+
+== Environment Variables
+
+. THREADS
+. ETHERBASE
+. EXTRADATA
+
+
+
+== Volumes & folder
+
+All the data we should care about is located inside the /ethdata folder in the container. it contains mainly 3 sub folders:
+
+. ipc
+. datadir
+. ethash
+
+=== /ethdata/ipc
+NOTE: The +/ethdata/ipc+ is internal and not exposed as Volume. It contains +geth.ipc+
+
+
+=== /ethdata/datadir
+
+This is the main data folder. If you do not attach a volume, the whole blockchain will be downloaded from scratch every time. *That will take a lonnng time*.
+
+WARNING: While not attaching this volume is valid, it is highly recommended to map it to a local folder in order to persist your blockchain.
+
+=== /ethdata/ethash
+
+This folder contains one or more big files required to mine. You are free to mount this folder as volume or not.
+If you mount it, you will save it. Not mounting it will 'cost' you 5 to 10 minutes until the DAG can be rebuilt.
+
+See also https://github.com/ethereum/wiki/wiki/Ethash-DAG
+
+WARNING: DO NOT MOUNT THIS VOLUME. THERE IS A KNOWN ISSUE AT THE MOMENT, MOUNTING IT WILL CRASH WHEN THE DAG IS CREATED. See https://github.com/ethereum/go-ethereum/issues/1572
+
+
