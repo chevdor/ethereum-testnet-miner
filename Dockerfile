@@ -40,7 +40,7 @@ VOLUME /ethdata/datadir
 # by defining the ETHERBASE ENV variable when starting the container
 # otherwise, feel free to mine on my address for testing
 ENV THREADS=8
-ENV ETHERBASE='0x5a382C2fA3543E79e301Ef9d2f037351893C64A0'
+ENV ETHERBASE='0x3e37011e4a0ce72bB326CAed68dFD03c077E627A'
 ENV EXTRADATA='docker container chevdor/docker-ethereum-testnet-miner'
 
 WORKDIR /ethdata/datadir
