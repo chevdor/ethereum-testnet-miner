@@ -13,7 +13,8 @@ RUN apt-get install -q -y software-properties-common && \
  add-apt-repository ppa:ethereum/ethereum && \
  add-apt-repository ppa:ethereum/ethereum-dev && \
  apt-get update && \
- apt-get install -q -y geth
+ apt-get install -q -y geth && \
+ apt-get clean
 
 # Create our folders used for the Volumes
 RUN mkdir -p /ethdata/ipc && \
@@ -27,7 +28,8 @@ RUN rm -rf ~/.ethash && \
  ln -s /ethdata/ethash ~/.ethash
 
 VOLUME /ethdata/datadir
-VOLUME /ethdata/ethash
+# VOLUME /ethdata/ethash
+# DAG volume disabled due to issues with ethash: https://github.com/ethereum/go-ethereum/issues/1572
 
 # Nothing to expose in this container, it mines all alone.
 # EXPOSE 8545
@@ -43,4 +45,4 @@ ENV EXTRADATA='docker container chevdor/docker-ethereum-testnet-miner'
 
 WORKDIR /ethdata/datadir
 
-CMD /usr/bin/geth --mine --minerthreads=${THREADS} --testnet --etherbase ${ETHERBASE} --extradata ${EXTRADATA} --ipcpath /ethdata/ipc --datadir /ethdata/datadir 
+CMD /usr/bin/geth --mine --minerthreads=${THREADS} --testnet --etherbase ${ETHERBASE} --ipcpath /ethdata/ipc/geth.ipc --datadir /ethdata/datadir --extradata ${EXTRADATA} 
