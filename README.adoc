@@ -14,19 +14,12 @@ For the sake of clarity, the following command is split into a few lines. Run it
 [source,shell,numbered]
 ```
 docker run -it \
-   -e THREADS=4 \ <1> 
-   -e ETHERBASE=0x5a382C2fA3543E79e301Ef9d2f037351893C64A0 \ <2>
-   -e EXTRADATA="docker eth miner" \ <3>   
-   -v /Users/will/persistedvol/:/ethdata/datadir \ <4>  
-   ethereum-testnet-miner:latest <5>
+   -e THREADS=4 \
+   -e ETHERBASE=0x3e37011e4a0ce72bB326CAed68dFD03c077E627A \
+   -e EXTRADATA="docker eth miner" \
+   -v /Users/will/persistedvol/:/ethdata/datadir \
+   ethereum-testnet-miner:latest
 ```
-
-<1> The number of thread for the miner. Default is 8.
-<2> This is your etherbase address, the address that received the miner rewards
-<3> Optional extra data
-<4> Main data folder. You *want* :) to attach that volume 
-<5> This is the docker image we use
-
 
 
 == Environment Variables
@@ -35,7 +28,21 @@ docker run -it \
 . ETHERBASE
 . EXTRADATA
 
+=== THREADS
 
+Optional.
+The more the better. The default value is 8.
+
+=== ETHERBASE
+
+Optional but recommended to be set!
+This is the address that receives the rewards in Ether for your miner. Don´t forget to change it otherwise you will mine on an address controlled by me. This is not a big issue and you are free to do this to test but you will not be able to use this Ether for your testing.
+
+
+=== EXTRADATA
+
+Optional.
+You may pass extra data to your miner. See https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#minersetextra
 
 == Volumes & folder
 
