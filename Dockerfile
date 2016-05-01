@@ -10,10 +10,11 @@ RUN apt-get update && \
  apt-get install -q -y software-properties-common && \
  add-apt-repository ppa:ethereum/ethereum && \
  add-apt-repository ppa:ethereum/ethereum-dev && \
+ apt-get update && \
  apt-get install -q -y wget unzip && \
  apt-get install -q -y geth && \
  apt-get remove --purge -y perl && \
- apt-get remove --purge -y python && \
+ apt-get remove --purge -y python2.7 python3 && \
  apt-get autoremove -y && \
  apt-get clean
 
