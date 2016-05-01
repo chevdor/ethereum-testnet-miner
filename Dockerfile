@@ -6,26 +6,25 @@ ENV DEBIAN_FRONTEND noninteractive
 # update / upgrade
 RUN apt-get update && \
  apt-get upgrade -q -y && \
- apt-get dist-upgrade -q -y
-
-# Install Ethereum
-RUN apt-get install -q -y software-properties-common && \
+ apt-get dist-upgrade -q -y && \
+ apt-get install -q -y software-properties-common && \
  add-apt-repository ppa:ethereum/ethereum && \
  add-apt-repository ppa:ethereum/ethereum-dev && \
- apt-get update && \
+ apt-get install -q -y wget unzip && \
  apt-get install -q -y geth && \
+ apt-get remove --purge -y perl && \
+ apt-get remove --purge -y python && \
+ apt-get autoremove -y && \
  apt-get clean
 
 # Create our folders used for the Volumes
 RUN mkdir -p /ethdata/ipc && \
  mkdir -p /ethdata/datadir && \
- mkdir -p /ethdata/ethash
-
-# we move the .etash folder out of the way as
-# we will then symlink it to a volume. This
-# is where the DAG is stored.
-RUN rm -rf ~/.ethash && \
+ mkdir -p /ethdata/ethash && \
+ rm -rf ~/.ethash && \
  ln -s /ethdata/ethash ~/.ethash
+
+COPY ./start.sh /ethdata/
 
 VOLUME /ethdata/datadir
 # VOLUME /ethdata/ethash
@@ -45,4 +44,4 @@ ENV EXTRADATA='docker container chevdor/ethereum-testnet-miner'
 
 WORKDIR /ethdata/datadir
 
-CMD /usr/bin/geth --mine --minerthreads=${THREADS} --testnet --etherbase ${ETHERBASE} --ipcpath /ethdata/ipc/geth.ipc --datadir /ethdata/datadir --extradata ${EXTRADATA} 
+CMD ["/ethdata/start.sh", "/bin/sh"]

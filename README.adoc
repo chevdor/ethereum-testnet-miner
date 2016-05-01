@@ -37,44 +37,63 @@ This docker container provides an easy way to get started. The only requirement 
 
 All the other parameters are optional.
 
-This container is provided by *{author}*. Here is a sample usage:
-
-For the sake of clarity, the following command is split into a few lines. Run it as a single line.
-
-[source,shell,numbered]
-```
-docker run -it \
-   -e THREADS=4 \
-   -e ETHERBASE=0x1077c862ed6484C5756ec6A7549BFb570024995C \
-   -e EXTRADATA="docker eth miner" \
-   -v /Users/<yourname>/ethdatadir/:/ethdata/datadir \
-   chevdor/ethereum-testnet-miner:stable
-```
-
 
 == Environment Variables
 
 . THREADS
 . ETHERBASE
 . EXTRADATA
+. BLOCKCHAINDL
 
 === THREADS
 
 Optional.
 The more the better. The default value is 8.
 
+[source,shell,numbered]
+```
+docker run -it \
+   -e THREADS=4 \
+   chevdor/ethereum-testnet-miner:stable
+```
+
 === ETHERBASE
 
 Optional but recommended to be set!
-This is the address that receives the rewards in Ether for your miner. Don´t forget to change it otherwise you will mine on an address controlled by me. This is not a big issue and you are free to do this to test but you will not be able to use this Ether for your testing.
+This is the address that receives the rewards in Ether for your miner. 
 
+WARNING: Don´t forget to provide it otherwise you will mine on an address controlled by me. This is not a big issue and you are free to do this to test but you will not be able to use this Ether for your testing.
+
+[source,shell,numbered]
+```
+docker run -it \
+   -e ETHERBASE=0x1077c862ed6484C5756ec6A7549BFb570024995C \
+   chevdor/ethereum-testnet-miner:stable
+```
 
 === EXTRADATA
 
 Optional.
 You may pass extra data to your miner. See https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#minersetextra
 
+[source,shell,numbered]
+```
+docker run -it \
+   -e EXTRADATA="docker eth miner" \
+   chevdor/ethereum-testnet-miner:stable
+```
 
+=== BLOCKCHAINDL
+
+Optional. This value is important and can save you time. If you made a backup of the blockchain (a zip that contains the chaindata folder), you may provide it here. This will save you some time for the first start.
+
+Sample use:
+[source,shell,numbered]
+```
+docker run -it \
+	-e BLOCKCHAINDL=http://www.example.com/chaindata.zip \
+   chevdor/ethereum-testnet-miner:stable
+```
 
 [Volumes and Folders]
 == Volumes & folders
