@@ -91,7 +91,7 @@ Sample use:
 [source,shell,numbered]
 ```
 docker run -it \
-	-e BLOCKCHAINDL=http://www.example.com/chaindata.zip \
+   -e BLOCKCHAINDL=http://www.example.com/chaindata.zip \
    chevdor/ethereum-testnet-miner:stable
 ```
 
