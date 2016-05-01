@@ -95,6 +95,12 @@ docker run -it \
    chevdor/ethereum-testnet-miner:stable
 ```
 
+You can create a proper chaindata backup from the Ethereum *datadir* folder with the following command:
+
+   zip -r -9 chaindata.zip chaindata/
+
+As of may 2016, you will get a zip file that is a little over 1GB.
+
 [Volumes and Folders]
 == Volumes & folders
 
