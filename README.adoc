@@ -1,6 +1,6 @@
 = Docker container: Ethereum testnet miner
 Chevdor <chevdor@gmail.com>
-v1.5.0, 2016-3-30
+v1.5.0, 2016-04-30
 :toc:
 :source-highlighter: pygments 				// coderay, highlightjs, prettify, and pygments.
 :doctype: Article
@@ -21,7 +21,7 @@ docker run -it \
    chevdor/ethereum-testnet-miner:stable
 ```
 
-If you already have a testnet datadir, you can copy it into +/Users/<yourname>/ethdatadir/+ before you start. That will speed up things a lot.
+If you already have a testnet datadir, you can copy it into +/Users/<yourname>/ethdatadir/+ before you start. That will speed up things a lot. If not, first you will have to wait for the download of the testnet blockchain. That can take a while. To that, you will have to wait between 5 and 10 minutes depdending on your machine, until the DAG is built. So be patient...
 
 [Intro]
 == Intro
