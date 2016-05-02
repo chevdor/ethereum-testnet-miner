@@ -41,7 +41,7 @@ VOLUME /ethdata/datadir
 # otherwise, feel free to mine on my address for testing
 ENV THREADS=8
 ENV ETHERBASE='0x1077c862ed6484C5756ec6A7549BFb570024995C'
-ENV EXTRADATA='docker container chevdor/ethereum-testnet-miner'
+ENV EXTRADATA='docker:chevdor/ethereum-testnet-miner'
 
 WORKDIR /ethdata/datadir
 
