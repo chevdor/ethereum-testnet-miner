@@ -14,7 +14,7 @@ if [ ! -f "/ethdata/.init" ]; then
 	# $BLOCKCHAINDL must point to a zip that contains the *chaindata* folder itself.
 	if [ -n "${BLOCKCHAINDL-}" ] && [ ! -d "/ethdata/datadir/chaindata" ]; then
 		echo " start.sh: chaindata not found, downloading chaindata from $BLOCKCHAINDL";
-		wget "$BLOCKCHAINDL" && \
+		wget --output-document=chaindata.zip "$BLOCKCHAINDL" && \
 		unzip *.zip && \
 		rm *.zip && \
 		mkdir testnet && \
