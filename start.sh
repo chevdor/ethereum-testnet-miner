@@ -39,4 +39,3 @@ fi;
  --ipcpath /ethdata/ipc/geth.ipc \
  --datadir /ethdata/datadir \
  --extradata "${EXTRADATA}"
- --networkid "${NETWORKID}"
