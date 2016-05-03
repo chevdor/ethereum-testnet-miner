@@ -123,10 +123,11 @@ WARNING: While not attaching this volume is valid, it is highly recommended to m
 === /ethdata/ethash
 
 This folder contains one or more big files required to mine. You are free to mount this folder as volume or not.
-If you mount it, you will save it. Not mounting it will 'cost' you 5 to 10 minutes until the DAG can be rebuilt.
+If you mount it, you will save it. Not mounting it will 'cost' you 5 to 15 minutes until the DAG can be rebuilt.
+I saw around 8min with 8 cores, 15min with 4 cores... 
 
 See also https://github.com/ethereum/wiki/wiki/Ethash-DAG
 
-WARNING: DO NOT MOUNT THIS VOLUME. THERE IS A KNOWN ISSUE AT THE MOMENT, MOUNTING IT WILL CRASH WHEN THE DAG IS CREATED. See https://github.com/ethereum/go-ethereum/issues/1572
+WARNING: DO NOT MOUNT THIS VOLUME FOR NOW. THERE IS A KNOWN ISSUE AT THE MOMENT, MOUNTING IT WILL CRASH WHEN THE DAG IS CREATED. See https://github.com/ethereum/go-ethereum/issues/1572
 
 

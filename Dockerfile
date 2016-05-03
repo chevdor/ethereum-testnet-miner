@@ -13,7 +13,7 @@ RUN apt-get update && \
  apt-get update && \
  apt-get install -q -y wget unzip && \
  apt-get install -q -y geth && \
- apt-get remove --purge -y perl && \
+ apt-get remove --purge -y perl perl-modules && \
  apt-get remove --purge -y python2.7 python3 && \
  apt-get autoremove -y && \
  apt-get clean
@@ -40,8 +40,8 @@ VOLUME /ethdata/datadir
 # by defining the ETHERBASE ENV variable when starting the container
 # otherwise, feel free to mine on my address for testing
 ENV THREADS=8
-ENV ETHERBASE='0x1077c862ed6484C5756ec6A7549BFb570024995C'
-ENV EXTRADATA='docker:chevdor/ethereum-testnet-miner'
+ENV ETHERBASE="0x1077c862ed6484C5756ec6A7549BFb570024995C"
+ENV EXTRADATA="docker:chevdor/ethereum-testnet-miner"
 
 WORKDIR /ethdata/datadir
 
