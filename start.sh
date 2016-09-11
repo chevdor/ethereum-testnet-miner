@@ -38,4 +38,5 @@ fi;
  --etherbase ${ETHERBASE} \
  --ipcpath /ethdata/ipc/geth.ipc \
  --datadir /ethdata/datadir \
+ --fast \
  --extradata "${EXTRADATA}"
